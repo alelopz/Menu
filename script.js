@@ -30,6 +30,7 @@ const cartTotal = document.getElementById('cartTotal');
 const cartCount = document.querySelector('.cart-count');
 const menuItems = document.getElementById('menuItems');
 const categoryButtons = document.querySelectorAll('.category-btn');
+const callWaiterBtn = document.getElementById('callWaiterBtn');
 
 // Funciones del carrito
 function openCart() {
@@ -65,6 +66,7 @@ function addToCart(item) {
     updateCartCount();
     updateCartTotal();
     renderCartItems();
+    openCart();
 }
 
 function removeFromCart(itemId) {
@@ -86,6 +88,11 @@ function updateQuantity(itemId, newQuantity) {
 
 function renderCartItems() {
     cartItems.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="empty-cart">Tu carrito está vacío</p>';
+        return;
+    }
 
     cart.forEach(item => {
         const cartItemElement = document.createElement('div');
@@ -120,7 +127,7 @@ function renderMenuItems(category) {
             <div class="menu-item-info">
                 <h3>${item.name}</h3>
                 <p>$${item.price.toFixed(2)}</p>
-                <button class="add-to-cart" onclick="addToCart(${JSON.stringify(item)})">
+                <button class="add-to-cart" onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')})">
                     Agregar al Carrito
                 </button>
             </div>
@@ -129,9 +136,15 @@ function renderMenuItems(category) {
     });
 }
 
+// Función para llamar al mesero
+function callWaiter() {
+    alert('¡Un mesero se acercará a tu mesa en breve!');
+}
+
 // Event Listeners
 cartIcon.addEventListener('click', openCart);
 closeCart.addEventListener('click', closeCartSidebar);
+callWaiterBtn.addEventListener('click', callWaiter);
 
 categoryButtons.forEach(button => {
     button.addEventListener('click', () => {
