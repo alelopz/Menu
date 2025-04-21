@@ -4,69 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú de Hamburguesas</title>
+    <title>Menú Digital</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>BURGER BAR</h1>
-            <p class="subtitle">Las mejores hamburguesas de la ciudad</p>
-        </header>
-
-        <div class="menu-container">
-            <div class="menu-section">
-                <h2>Hamburguesas Clásicas</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <h3>Clásica</h3>
-                        <p>Carne 100% res, lechuga, tomate, cebolla y salsa especial</p>
-                        <p class="price">$120</p>
-                        <button class="add-to-cart" data-name="Clásica" data-price="120">Agregar al carrito</button>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Cheeseburger</h3>
-                        <p>Carne, queso cheddar, lechuga, tomate y salsa especial</p>
-                        <p class="price">$140</p>
-                        <button class="add-to-cart" data-name="Cheeseburger" data-price="140">Agregar al
-                            carrito</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-section">
-                <h2>Hamburguesas Premium</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <h3>BBQ Bacon</h3>
-                        <p>Carne, tocino, queso cheddar, cebolla caramelizada y salsa BBQ</p>
-                        <p class="price">$160</p>
-                        <button class="add-to-cart" data-name="BBQ Bacon" data-price="160">Agregar al carrito</button>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Mexicana</h3>
-                        <p>Carne, guacamole, jalapeños, queso pepper jack y salsa picante</p>
-                        <p class="price">$150</p>
-                        <button class="add-to-cart" data-name="Mexicana" data-price="150">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
+    <header>
+        <h1>Menú Digital</h1>
+        <div class="cart-icon" id="cartIcon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
         </div>
+    </header>
 
-        <div class="cart-container">
-            <h2>Tu Pedido</h2>
-            <div id="cart-items"></div>
-            <div class="cart-total">
-                <p>Total: $<span id="total">0</span></p>
-            </div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
         </div>
-
-        <button id="call-waiter" class="call-waiter-btn">
-            <span>🛎️</span> Llamar Mesero
-        </button>
+        <div class="cart-items" id="cartItems">
+            <!-- Los items del carrito se agregarán aquí dinámicamente -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: $<span id="cartTotal">0.00</span></h3>
+        </div>
+        <button class="checkout-btn">Realizar Pedido</button>
     </div>
+
+    <main>
+        <div class="menu-categories">
+            <button class="category-btn active" data-category="entradas">Entradas</button>
+            <button class="category-btn" data-category="principales">Platos Principales</button>
+            <button class="category-btn" data-category="postres">Postres</button>
+            <button class="category-btn" data-category="bebidas">Bebidas</button>
+        </div>
+
+        <div class="menu-items" id="menuItems">
+            <!-- Los items del menú se agregarán aquí dinámicamente -->
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
