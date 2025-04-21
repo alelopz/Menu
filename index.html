@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Hamburguesas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>BURGER BAR</h1>
+            <p class="subtitle">Las mejores hamburguesas de la ciudad</p>
+        </header>
+
+        <div class="menu-container">
+            <div class="menu-section">
+                <h2>Hamburguesas Clásicas</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <h3>Clásica</h3>
+                        <p>Carne 100% res, lechuga, tomate, cebolla y salsa especial</p>
+                        <p class="price">$120</p>
+                        <button class="add-to-cart" data-name="Clásica" data-price="120">Agregar al carrito</button>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Cheeseburger</h3>
+                        <p>Carne, queso cheddar, lechuga, tomate y salsa especial</p>
+                        <p class="price">$140</p>
+                        <button class="add-to-cart" data-name="Cheeseburger" data-price="140">Agregar al
+                            carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h2>Hamburguesas Premium</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <h3>BBQ Bacon</h3>
+                        <p>Carne, tocino, queso cheddar, cebolla caramelizada y salsa BBQ</p>
+                        <p class="price">$160</p>
+                        <button class="add-to-cart" data-name="BBQ Bacon" data-price="160">Agregar al carrito</button>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Mexicana</h3>
+                        <p>Carne, guacamole, jalapeños, queso pepper jack y salsa picante</p>
+                        <p class="price">$150</p>
+                        <button class="add-to-cart" data-name="Mexicana" data-price="150">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-container">
+            <h2>Tu Pedido</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <p>Total: $<span id="total">0</span></p>
+            </div>
+        </div>
+
+        <button id="call-waiter" class="call-waiter-btn">
+            <span>🛎️</span> Llamar Mesero
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
