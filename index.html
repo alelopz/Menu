@@ -31,10 +31,29 @@
         <div class="cart-items" id="cartItems">
             <!-- Los items del carrito se agregarán aquí dinámicamente -->
         </div>
-        <div class="cart-total">
-            <h3>Total: $<span id="cartTotal">0.00</span></h3>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <h3>Total: $<span id="cartTotal">0.00</span></h3>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Realizar Pedido</button>
         </div>
-        <button class="checkout-btn">Realizar Pedido</button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="payment-options" id="paymentOptions">
+        <h3>¿Cómo te gustaría realizar el pago?</h3>
+        <div class="payment-buttons">
+            <button class="payment-btn" onclick="selectPayment('efectivo')">
+                <i class="fas fa-money-bill-wave"></i> Efectivo
+            </button>
+            <button class="payment-btn" onclick="selectPayment('tarjeta')">
+                <i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito
+            </button>
+            <button class="payment-btn" onclick="selectPayment('transferencia')">
+                <i class="fas fa-exchange-alt"></i> Transferencia
+            </button>
+        </div>
     </div>
 
     <main>

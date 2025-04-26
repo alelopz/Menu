@@ -31,6 +31,9 @@ const cartCount = document.querySelector('.cart-count');
 const menuItems = document.getElementById('menuItems');
 const categoryButtons = document.querySelectorAll('.category-btn');
 const callWaiterBtn = document.getElementById('callWaiterBtn');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const paymentOptions = document.getElementById('paymentOptions');
+const overlay = document.getElementById('overlay');
 
 // Funciones del carrito
 function openCart() {
@@ -141,10 +144,37 @@ function callWaiter() {
     alert('¡Un mesero se acercará a tu mesa en breve!');
 }
 
+// Funciones de pago
+function showPaymentOptions() {
+    if (cart.length === 0) {
+        alert('Tu carrito está vacío');
+        return;
+    }
+    paymentOptions.classList.add('show');
+    overlay.classList.add('show');
+}
+
+function hidePaymentOptions() {
+    paymentOptions.classList.remove('show');
+    overlay.classList.remove('show');
+}
+
+function selectPayment(method) {
+    alert(`Has seleccionado pago con ${method}. ¡Gracias por tu compra!`);
+    cart = [];
+    updateCartCount();
+    updateCartTotal();
+    renderCartItems();
+    hidePaymentOptions();
+    closeCartSidebar();
+}
+
 // Event Listeners
 cartIcon.addEventListener('click', openCart);
 closeCart.addEventListener('click', closeCartSidebar);
 callWaiterBtn.addEventListener('click', callWaiter);
+checkoutBtn.addEventListener('click', showPaymentOptions);
+overlay.addEventListener('click', hidePaymentOptions);
 
 categoryButtons.forEach(button => {
     button.addEventListener('click', () => {
